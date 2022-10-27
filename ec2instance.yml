@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  connection: local
+
+  vars:
+    state: present
+
+  tasks:
+  - name: start an instance and Add EBS
+    amazon.aws.ec2_instance:
+      name: "public-withebs-instance"
+      state: "{{ state }}"
+      image:
+        id: ami-092b43193629811af
+      vpc_subnet_id:  subnet-56fd641a 
+      instance_type: t2.micro
+      key_name: "holden"
+      security_group: default
+      tags:
+        Environment: testing
+      volumes:
+        - device_name: /dev/sda1
+          ebs:
+            volume_size: 16
+            delete_on_termination: true 
