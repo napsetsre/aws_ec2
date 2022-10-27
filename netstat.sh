@@ -1,3 +1,3 @@
 #!/bin/bash
 whoami
-netstat -tlnp
+ss -tlnp
