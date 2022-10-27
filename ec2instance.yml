@@ -16,6 +16,7 @@
       instance_type: t2.micro
       key_name: "holden"
       security_group: default
+      region: us-east-2
       tags:
         Environment: testing
       volumes:
